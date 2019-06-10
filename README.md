@@ -18,5 +18,5 @@
 * day1 ( 2019.06.10 )
   - [SQL JOIN](https://www.youtube.com/watch?v=2Xa54XBXbk0&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq)
   - [CROSS JOIN](https://thebook.io/006696/part01/ch06/03/03/)
-  - [과제] 그룹웨어 SQL작성하기.[wiki : 2W1D](https://github.com/fyrn4/TIL/wiki/1W3D)
+  - [과제] 그룹웨어 SQL작성하기.[(wiki : 2W1D)](https://github.com/fyrn4/TIL/wiki/2W1D)
   
