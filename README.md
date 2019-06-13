@@ -48,4 +48,4 @@
     - [http://api.jquery.com/category/effects/basics/](http://api.jquery.com/category/effects/basics/)
     - [http://api.jquery.com/on/](http://api.jquery.com/on/)
     - [http://api.jquery.com/click/](http://api.jquery.com/click/)
-  - Javascript Standard Style
+  - [Javascript Standard Style](https://standardjs.com/readme-kokr.html)
