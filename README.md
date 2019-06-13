@@ -29,6 +29,23 @@
 * day3 ( 2019.06.12 )
   - JSON 호출하여 결과를 console.log로 출력.(INPUT 하나의 조회조건)
 
-* day4 ( 2019.06.11 )
-  - JQuery 기본 이해
+* day4 ( 2019.06.13 )  
+  - JQuery 기본 이해 [(학습)](https://www.youtube.com/watch?v=iQlURl_QjAk&list=PLBXuLgInP-5kLy13XLuK8iBWVFDBJygYr&index=67)
+      - jQuery 객체 (63강)
+      - jQuery로 문서 객체 조작하기(1~3) (64~66강)
+      - jQuery로 이벤트 연결하기 (67강)
+  - jQuery Selector 에 대한 학습(script는 반드시 코드를 직접 입력해보고 이해한다 [(학습)](https://api.jquery.com/category/selectors/)
+    - Attribute Contains Selector [name*=”value”]부터 Class Selector (“.class”)(11개)
+    - Element Selector (“element”)
+    - ID Selector (“#id”)
+    - :input Selector
+    - Multiple Attribute Selector [name=”value”][name2=”value2″]
+    - Multiple Selector (“selector1, selector2, selectorN”)
+    - :selected Selector
     
+* day5 ( 2019.06.14 )
+  - jQuery 함수 및 이벤트
+    - [http://api.jquery.com/category/effects/basics/](http://api.jquery.com/category/effects/basics/)
+    - [http://api.jquery.com/on/](http://api.jquery.com/on/)
+    - [http://api.jquery.com/click/](http://api.jquery.com/click/)
+  - Javascript Standard Style
