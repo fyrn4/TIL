@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Input Selector</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <style>
+            textarea { height: 25px; }
+        </style>
+    </head>
+    <body>
+        <form>
+            <input type="button" value="Input Button">
+            <input type="checkbox">
+            <input type="file">
+            <input type="hidden">
+            <input type="image">
+            <input type="password">
+            <input type="radio">
+            <input type="reset">
+            <input type="submit">
+            <input type="text">
+            <select>
+                <option>Option</option>
+            </select>
+            <textarea></textarea>
+            <button>Button</button>
+        </form>
+        <div id="message"></div>
+
+        <script>
+            var allInputs = $(':input');
+            var formChildren = $('form > *');
+            $("#message").text("input = "+allInputs.length+" form children = "+formChildren.length)
+            .css("background-color","yellow");
+        </script>
+    </body>
+</html>

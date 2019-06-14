@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple Selector</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+        div,span,p {
+            width: 126px;
+            height: 60px;
+            float: left;
+            padding: 3px;
+            margin: 2px;
+            background-color: #eee;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>div</div>
+    <p class="myClass">p class="myClass"</p>
+    <p class="notMyClass">p class="notMyClass"</p>
+    <span id="mySpan">span</span>
+    <script>
+        $("div,p.myClass,#mySpan").css('border','3px solid red');
+    </script>
+</body>
+
+</html>

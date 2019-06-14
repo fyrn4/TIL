@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MultipleAttribute Selector</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    <body>
+        <input id="man-news" name="man-news">
+        <input name="milkman">
+        <input id="letterman" name="new-letterman">
+        <input name="newmilk">
+        <input type="number" name="radios" id="radios">
+    <script>
+        $( "input[id][name$='man']" ).val( "this one" );
+        $( "input[id='man-news'][name='man-news']" ).val( "this one" );
+        $( "input[type='number'][name][id='radios']").val(12345679);
+    </script>
+    </body>
+</html>

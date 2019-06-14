@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Element Selector</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <style>
+            div, span {
+              width: 60px;
+              height: 60px;
+              float: left;
+              padding: 10px;
+              margin: 10px;
+              background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div>DIV1</div>
+        <div>DIV2</div>
+        <span>SPAN</span>
+
+        <script>
+            $( "div" ).css( "border", "9px solid red" );
+        </script>
+    </body>
+</html>
