@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery_객체</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>             
+  <body>                                            
+    <h1></h1>
+    <script>
+      //css선택자
+      $("h1").css('color','red')
+      $("h1").css('background','orange')
+      $("h1").css('font-size','20px')
+      $("h1").html('안녕하세요.')
+
+      //문서객체선택
+      var header = document.querySelector("h1")
+      $(header).css("color","blue")
+
+      //태그형태의 문자열
+      $("<h2></h2>")
+        .appendTo("body")
+        .html("hello world")
+        .css("color","red")
+    </script>
+  </body>
+</html>

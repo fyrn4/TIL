@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery_문서객체조작_4</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <style>
+    
+    </style>
+</head>             
+  <body>
+    <section id="section1">
+      <h1>Hello!</h1>
+      </br>
+        <a href="http://www.naver.com">네이버</a>
+      </br>
+      <h2>event h2</h2>
+    </br>
+      <h3>event h3</h3>
+    </section>                                                
+    <script>
+      $('h1').click(function(e){
+        alert('click event!!');
+        // this == event.currentTarget
+        $(e.currentTarget).html('click~');
+        $(this).css("color","red");
+      });
+
+      $('h1').click('data', function(e){
+        alert(e.data); //e.data = 100 이벤트를 식별하기위해 데이터를 사용하기도한다,
+      })
+
+      $("a").click(function (e){
+        e.preventDefault(); //기본 이벤트가 제거된다.        
+        e.stopPropagation(); //이벤트가 뒤로 전달되지 않는다.
+
+        return false; // 위 두가지함수는 자주사용되기때문에 jquery에서는 return false로 위의 두가지 기능을 해준다.
+      })
+
+      $("h2").on("click",function(e){
+        $(this).html("click1");
+      })
+
+      $("h2").on({
+        click : function(e){
+          $(this).html("click2");
+        },
+        dblclick : function(){
+          $(this).html("DBclick");
+        },
+        mouseenter : function(){
+          $(this).html("mouseenter");
+        }
+      })
+
+      $("body").on("click","h3",function(){
+        $(this).html("click h3");
+        $("<h3></h3>").html("event h3").appendTo("body");
+      })
+
+    </script>
+  </body>
+</html>

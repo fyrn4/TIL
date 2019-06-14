@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery_문서객체조작_3</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <style>
+      section {
+        border:1px solid;
+      }
+      .red-text{
+        color:red;
+      }
+      .center{
+        text-align: center;
+      }
+    </style>
+</head>             
+  <body>
+    <section id="section1">
+        <h1>Hello!</h1>
+    </section>                                                
+    <script>
+      //$("h1").attr("class",'red-text center');
+      
+      $("h1").addClass("red-text center");
+
+      setTimeout(function(){
+        $("h1").removeClass('center');
+        $("h1").removeClass('red-text');
+      },1000*2)
+
+      //hasClass -> 해당 이름의 클래스 유무 boolean형태 반환
+      console.log($("h1").hasClass('center'))
+      
+      //토글형태로 add & remove 해줌
+      $("h1").toggleClass("center")
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery_문서객체조작_2</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <style>
+      section {
+        border:1px solid;
+      }
+    </style>
+</head>             
+  <body>
+    <section id="section1">
+        
+    </section>                                                
+
+    <section id="section2">
+      <h1>h1 hello</h1>
+      <h2>h2 hello</h2>
+      <h3>h3 hello</h3>
+    </section>
+
+    <script>
+      
+      $("<h2></h2>").html("AppendTo").appendTo("#section1")
+      $("<h2></h2>").html("PrependTo").prependTo("#section1")
+      $("<h2></h2>").html("After").insertAfter("#section1")
+      $("<h2></h2>").html("Before").insertBefore("#section1")
+
+      $("h1").appendTo("<h1></h1>");
+      $("h2").prepend("<h1></h1>")
+      $("h3").after("<h1></h1>")
+      $("h2").before("<h1></h1>")
+    </script>
+
+  </body>
+</html>

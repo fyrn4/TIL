@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>selector_11ex</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <style>
+    body{
+      padding: 20px;
+    }
+    .container{
+      padding:20px;
+      border:1px solid black;
+      margin-bottom: 20px;
+    }
+    .subject{
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .explain{
+      color:gray;
+      font-size:13px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid gray ;
+    }
+    .script{
+      font-size: 14px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .ex_area{
+      padding-top: 25px;
+      padding-bottom: 25px;
+      
+    }
+    .script::before{
+      white-space:pre;
+      content:"# script \A";
+      font-weight: 700;
+    }
+    .html::before{
+      white-space:pre;
+      content:"# HTML \A";
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+<!-- #틀
+    <div class="container">
+        <p class="subject"># 제목</p>
+          <p class="explain"> # 설명 </p>
+
+          <div id="ex번호_area" class="ex_area">
+            # 예제 코드
+          </div>
+    
+          <pre id="ex번호_html" class="html"></pre>
+          <p id="ex번호_script" class="script"> # 스크립트 코드 </p>
+      </div>
+      <script>
+        //공통
+        $("#ex번호_html").text($("#ex번호_area").html());
+        
+      </script>
+-->
+  <!-- 1#  -->
+  <div class="container">
+    <p class="subject">#1 target[attr *= 'value'] </p>
+      <p class="explain"> 지정한 값이 포함된것을 찾습니다. </p>
+      <div id="ex1_area" class="ex_area">
+        <input name="man-news">
+        <input name="milk man">
+        <input name="letterman2">
+        <input name="newmilk">
+      </div>
+
+      <pre id="ex1_html" class="html"></pre>
+      <p id="ex1_script" class="script">$("input[name*='man']").val('man in it');</p>
+  </div>
+  <script>
+    //공통
+    $("#ex1_html").text($("#ex1_area").html());
+
+    $("input[name*='man']").val('man in it');
+  </script>
+
+  <!-- 2#  -->
+  <div class="container">
+      <p class="subject">#2 target[attr ~= 'value'] </p>
+        <p class="explain"> 지정한 값이 '정확히(공백단위)' 포함된것을 찾습니다. </p>
+        <div id="ex2_area" class="ex_area">
+          <input name="man-news">
+          <input name="milk man">
+          <input name="letterman2">
+          <input name="newmilk">
+        </div>
+        <pre id="ex2_html" class="html"></pre>
+        <p id="ex2_script" class="script">$("input[name~='man']").val('man in it');</p>
+  </div>
+    <script>
+      //공통
+      $("#ex2_html").text($("#ex2_area").html());
+
+      $("input[name~='man']").val('man in it');
+    </script>
+
+  <!-- #3 -->  
+  <div class="container">
+      <p class="subject">3# target[attr $= 'value'] </p>
+      <p class="explain"> 지정한 값으로 끝나는것을 찾습니다. </p>
+        <div id="ex3_area" class="ex_area">
+          <input name="newsletter">
+          <input name="milkman">
+          <input name="jobletter">
+        </div>
+  
+        <pre id="ex3_html" class="html"></pre>
+        <p id="ex3_script" class="script"> $(" input[name $= 'letter' ").val('letter'); </p>
+    </div>
+    <script>
+      //공통
+      $("#ex3_html").text($("#ex3_area").html());
+
+      $("input[name $= 'letter'").val('letter');
+    </script>
+
+  <!-- #4 -->
+  <div class="container">
+      <p class="subject">4# target[attr = 'value']</p>
+        <p class="explain"> 해당 '정확한'값의 속성을가진것을 찾습니다.</p>
+
+      <div id="ex4_area" class="ex_area">
+          <div>
+              <label>
+                <input type="radio" name="newsletter" value="Hot Fuzz">
+                <span>one</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="newsletter" value="Cold Fusion">
+                <span>two</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="newsletter" value="Evil Plans">
+                <span>three</span>
+              </label>
+            </div>
+      </div>
+
+      <pre id="ex4_html" class="html"></pre>
+      <p id="ex4_script" class="script"> $('input[value="Hot Fuzz"]').next().text("Hot Fuzz"); </p>
+  </div>
+  <script>
+    //공통
+    $("#ex4_html").text($("#ex4_area").html());
+    // 해당셀렉터의 다음( next() ) 태그를 다룬다( text("Hot Fuzz") ).
+    $('input[value="Hot Fuzz"]').next().text("Hot Fuzz");
+  </script>
+
+  <!-- #5 -->
+  <div class="container">
+      <p class="subject">5# target[ attr != 'value']</p>
+        <p class="explain"> 해당값이 아닌것들을 찾습니다. </p>
+
+        <div id="ex5_area" class="ex_area">
+            <div>
+              <input type="radio" name="newsletter" value="Hot Fuzz">
+              <span>name is newsletter</span>
+            </div>
+            <div>
+              <input type="radio" value="Cold Fusion">
+              <span>no name</span>
+            </div>
+            <div>
+              <input type="radio" name="accept" value="Evil Plans">
+              <span>name is accept</span>
+            </div>
+        </div>
+  
+        <pre id="ex5_html" class="html"></pre>
+        <p id="ex5_script" class="script"> $("input[name!=newsletter]").next().append('name is not newsletter');</p>
+    </div>
+    <script>
+      //공통
+      $("#ex5_html").text($("#ex5_area").html());
+      
+      $("input[name!=newsletter]").next().append('<b> not newsletter<b>');
+    </script>
+
+  <!-- #6 -->
+  <div class="container">
+      <p class="subject">6# target[attr ^= 'value'] </p>
+        <p class="explain"> 해당값으로 시작하는것들을 찾습니다. </p>
+
+        <div id="ex6_area" class="ex_area">
+            <input name="newsletter">
+            <input name="milkman">
+            <input name="newsboy">
+            <input name="goodnews">
+        </div>
+  
+        <pre id="ex6_html" class="html"></pre>
+        <p id="ex6_script" class="script"> $('input[name^="news"').val('start news!'); </p>
+    </div>
+    <script>
+      //공통
+      $("#ex6_html").text($("#ex6_area").html());
+      
+      $('input[name^="news"').val('start news!');
+    </script>
+
+  <!-- #7 -->
+  <div class="container">
+      <p class="subject">7# $(":button") </p>
+        <p class="explain"> 버튼유형의 요소를 선택합니다. == $( "button, input[type='button']" ) </p>
+
+        <div id="ex7_area" class="ex_area">
+            <form>
+                <div class="form-group">
+                  <input type="button" value="Input Button">
+                </div>
+                <div class="form-group">
+                  <input type="checkbox">
+                </div>
+                <div class="form-group">
+                  <input type="file">
+                </div>
+                <div class="form-group">
+                  <input type="hidden">
+                </div>
+                <div class="form-group">
+                  <input type="image">
+                </div>
+                <div class="form-group">
+                  <input type="password">
+                </div>
+                <div class="form-group">
+                  <input type="radio">
+                </div>
+                <div class="form-group">
+                  <input type="reset">
+                </div>
+                <div class="form-group">
+                  <input type="submit">
+                </div>
+                <div class="form-group">
+                  <input type="text">
+                </div>
+                <div class="form-group">
+                  <select>
+                    <option>Option</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button>Button</button>
+                </div>
+              </form>
+        </div>
+  
+        <pre id="ex7_html" class="html"></pre>
+        <p id="ex7_script" class="script"> $(":button").css("background","red"); </p>
+    </div>
+    <script>
+      //공통
+      $("#ex7_html").text($("#ex7_area").html());
+      
+      //submit 이벤트를 없애기위함
+      $("form").submit(function(e) { e.preventDefault(); });
+
+      //해당 button유형은 css를 입힌다.
+      $(":button").css("background","red");
+    </script>
+
+  <!-- #8 -->
+  <div class="container">
+      <p class="subject"># $(":checkbox") </p>
+        <p class="explain"> 체크박스 유형을 선택합니다. </p>
+
+        <div id="ex8_area" class="ex_area">
+            <form id="ex8_form">
+                <input type="button" value="Input Button">
+                <input type="checkbox">
+               
+                <input type="checkbox">
+                <input type="file">
+                <input type="hidden">
+               
+                <input type="image">
+                <input type="password">
+                <input type="radio">
+               
+                <input type="reset">
+                <input type="submit">
+                <input type="text">
+               
+                <select>
+                  <option>Option</option>
+                </select>
+               
+                <textarea></textarea>
+                <button>Button</button>
+                <div id="find"></div>
+              </form>
+        </div>
+  
+        <pre id="ex8_html" class="html"></pre>
+        <p id="ex8_script" class="script">var input = $("#ex8_form input:checkbox").wrap("<span></span>").parent().css({ background: "yellow", border:"2px solid red"});</br>
+          $('#find').text("해당 "+input.length+"건의 요소를 찾았습니다!").css("color","red");</p>
+    </div>
+    <script>
+      //공통
+      $("#ex8_html").text($("#ex8_area").html());
+      
+      $("form").submit(function( event ) {
+        event.preventDefault();
+      });
+      var input = $("#ex8_form input:checkbox").wrap("<span></span>").parent().css({ background: "yellow", border:"2px solid red"});
+      $('#find').text("해당 "+input.length+"건의 요소를 찾았습니다!").css("color","red");
+    </script>
+
+  <!-- #9 -->
+  <div class="container">
+      <p class="subject">9# (':checked') </p>
+        <p class="explain"> 라디오버튼, 체크박스등의 체크되어있는 요소를 찾습니다. (select요소는 -> :selected) </p>
+
+        <div id="ex9_area" class="ex_area">
+            <form>
+                <p>
+                  <input type="checkbox" name="newsletter" value="Hourly" checked="checked">
+               
+                  <input type="checkbox" name="newsletter" value="Daily">
+                  <input type="checkbox" name="newsletter" value="Weekly">
+               
+                  <input type="checkbox" name="newsletter" value="Monthly" checked>
+                  <input type="checkbox" name="newsletter" value="Yearly">
+                </p>
+              </form>
+              <div id="ex9_div"></div>
+        </div>
+  
+        <pre id="ex9_html" class="html"></pre>
+        <p id="ex9_script" class="script">var countChecked = function() {
+            var n = $("input:checked").length;
+              $("#ex9_div").text( n + (n === 1 ? " is" : " are") + " checked!" );
+            };</br>countChecked();</br>$( "input[type=checkbox]" ).on( "click", countChecked );
+
+        </p>
+    </div>
+    <script>
+      //공통
+      $("#ex9_html").text($("#ex9_area").html());
+      
+      var countChecked = function() {
+        var n = $("input:checked").length;
+        $("#ex9_div").text( n + (n === 1 ? " is" : " are") + " checked!" );
+      };
+        countChecked();
+      $( "input[type=checkbox]" ).on( "click", countChecked );
+    </script>
+</body>
+
+<!-- #10 -->
+<div class="container">
+    <p class="subject">10# ('parent > child') </p>
+      <p class="explain"> # 하위(바로밑 자식)을 선택한다, EF 보다 구체적인 형태 E>F </p>
+
+      <div id="ex10_area" class="ex_area">
+          <ul class="topnav">
+              <li>Item 1</li>
+              <li>Item 2
+                <ul>
+                <li>Nested item 1</li>
+                <li>Nested item 2</li>
+                <li>Nested item 3</li>
+                </ul>
+              </li>
+              <li>Item 3</li>
+            </ul>
+      </div>
+
+      <pre id="ex10_html" class="html"></pre>
+      <p id="ex10_script" class="script"> $( "ul.topnav > li" ).css( "border", "3px double red" ); </p>
+  </div>
+  <script>
+    //공통
+    $("#ex10_html").text($("#ex10_area").html());
+    
+    $( "ul.topnav > li" ).css( "border", "3px double red" );
+  </script>
+  
+  <!-- #11 -->
+  <div class="container">
+      <p class="subject"># ('.class')</p>
+        <p class="explain"> 검색 할 클래스. 요소는 여러 클래스를 가질 수 있습니다. 그 중 하나만 일치해야합니다. </p>
+
+        <div id="ex11_area" class="ex_area">
+            <div class="notMe">div class="notMe"</div>
+            <div class="myClass">div class="myClass"</div>
+            <span class="myClass">span class="myClass"</span>
+        </div>
+  
+        <pre id="ex11_html" class="html"></pre>
+        <p id="ex11_script" class="script"> $('.myClass').css("border","3px solid red");</p>
+
+        <div id="ex12_area" class="ex_area">
+            <div class="myclass">div class="notMe"</div>
+            <div class="myclass otherclass">div class="myClass"</div>
+            <span class="myclass otherclass">span class="myClass"</span>
+        </div>
+
+        <pre id="ex12_html" class="html"></pre>
+        <p id="ex12_script" class="script">
+          $( ".myclass.otherclass" ).css( "border", "10px solid blue" );
+        </p>
+
+    </div>
+    <script>
+      //공통
+      $("#ex11_html").text($("#ex11_area").html());
+      $("#ex12_html").text($("#ex12_area").html());
+      
+      //ex11
+      $('.myClass').css("border","3px solid red");
+
+      //ex12
+      $( ".myclass.otherclass" ).css( "border", "10px solid blue" );
+    </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery_문서객체조작_1</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>             
+  <body>                                            
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+  </br>
+    <img />
+    <img />
+    <img />
+    <script>
+      // 1. Setter - Jquery 객체
+        // 기본 문자열형
+        $("h1").css("color","red")
+        
+        // 객체형태
+        $("h1").css({
+          "color":"#223355",
+          "background-color":"green",
+          "text-align":"center"
+        })
+        $("h1").css({ color : "red" , backgroundColor : "cyan", textAlign: "center" })
+        
+        // 함수로 값을 입력
+        $("h1").css("color",function(){ return "lightblue" })
+
+        var arr = ["red","green","blue"]
+        $("h1").css({
+          "color":function(idx){ return arr[idx]}
+        })
+
+      // 2. Getter - 매개 변수를 하나 생략해서 사용한다.
+        var value = $("h1").css("color")
+        console.log(value)
+    </script>
+      
+    <script>
+      // 1. Setter
+        $("img").attr("src","http://placehold.it/100x100")
+        $("img").attr({
+          "src":"http://placehold.it/100x100",
+          "alt":"100x100사진"
+        })
+        $("img").attr({
+          "src":function(idx){
+            return "http://placehold.it/100x"+((idx+1)*100)
+          },
+          "alt":"인덱스별 사이즈"
+        })
+
+      // 2. Getter
+        var test = $("img").attr("src") 
+        alert(test)
+    </script>
+  </body>
+</html>
