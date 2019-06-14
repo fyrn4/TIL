@@ -43,7 +43,7 @@
     - Multiple Selector (“selector1, selector2, selectorN”)
     - :selected Selector
     
-* day5 ( 2019.06.14 )
+* day5 ( 2019.06.14 ) [(repo : 2W5D)](https://github.com/fyrn4/TIL/tree/master/2W5D)
   - jQuery 함수 및 이벤트 
     - [http://api.jquery.com/category/effects/basics/](http://api.jquery.com/category/effects/basics/)
     - [http://api.jquery.com/on/](http://api.jquery.com/on/)
