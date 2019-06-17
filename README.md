@@ -49,3 +49,17 @@
     - [http://api.jquery.com/on/](http://api.jquery.com/on/)
     - [http://api.jquery.com/click/](http://api.jquery.com/click/)
   - [Javascript Standard Style](https://standardjs.com/readme-kokr.html)
+  
+## 3 Week
+* day1 ( 2019.06.17 )
+  - [RealGrid Tutorial](https://www.youtube.com/watch?list=PLdJpJI2SrqEnPxnHZneS0qBisto2c8efm&v=xUXubZmyKi4)
+  - [Demo.RealGrid](http://demo.realgrid.com/)
+  
+* day2~5 ( 2019.06.18~21 )
+  - RealGrid CRUD 작성해보기.
+    - 공통 함수를 사용하지 않고 순수하게 RealGrid 에서 제공하는 API를 보고 진행한다.
+    - 어느 정도 화면이 나오는 수준이 되면 공통함수를 이해하도록 한다.
+    
+
+
+
