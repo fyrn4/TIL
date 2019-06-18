@@ -52,14 +52,17 @@
   
 ## 3 Week
 * day1 ( 2019.06.17 )
-  - [RealGrid Tutorial](https://www.youtube.com/watch?list=PLdJpJI2SrqEnPxnHZneS0qBisto2c8efm&v=xUXubZmyKi4)
+  - [RealGrid Youtube](https://www.youtube.com/watch?list=PLdJpJI2SrqEnPxnHZneS0qBisto2c8efm&v=xUXubZmyKi4)
   - [Demo.RealGrid](http://demo.realgrid.com/)
     - 그리드 구성요소 [(wiki:3W1D Grid Component)](https://github.com/fyrn4/TIL/wiki/3W1D-Grid-Component)
     - 셀 구성요소 [(wiki:3W1D Cell Component)](https://github.com/fyrn4/TIL/wiki/3W1D-Cell-Component)
     - 컬럼 [(wiki:3W1D Column&Field attr)](https://github.com/fyrn4/TIL/wiki/3W1D-Column&Field-attr)
     - 그리드 편집
     - 렌더러(*체크) [(wiki:3W1D CheckCellRenderer)](https://github.com/fyrn4/TIL/wiki/3W1D-CheckCellRenderer)
-* day2 ~ 5 ( 2019.06.18~21 )
+* day2 ( 2019.06.18 )
+  - [RealGrid tutorial](http://help.realgrid.com/tutorial)
+    - A, B Class 구현해보기.
+* day3 ~ 5 ( 2019.06.18~21 )
   - RealGrid CRUD 작성해보기.
     - 공통 함수를 사용하지 않고 순수하게 RealGrid 에서 제공하는 API를 보고 진행한다.
     - 어느 정도 화면이 나오는 수준이 되면 공통함수를 이해하도록 한다.
