@@ -1,5 +1,10 @@
 # Today I Learned
-
+- - - 
+## 기본학습
+- [javascript](https://www.youtube.com/watch?v=PZIPsKgWJiw&list=PLuHgQVnccGMA4uSig3hCjl7wTDeyIeZVU)
+- [오라클 SQL과 PL/SQL을 다루는 기술](https://thebook.io/006696/) 3~7장
+- [모두의 SQL](https://thebook.io/006977/) 4, 6~8장 
+ 
 ## 1 Week 
 * day1 ( 2019.06.04 )
   - 메일/그룹웨어/SVN 계정 생성
