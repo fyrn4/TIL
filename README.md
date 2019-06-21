@@ -65,13 +65,28 @@
     - 그리드 편집
     - 렌더러(*체크) [(wiki:3W1D CheckCellRenderer)](https://github.com/fyrn4/TIL/wiki/3W1D-CheckCellRenderer)
 * day2 ( 2019.06.18 )
-  - [RealGrid tutorial](http://help.realgrid.com/tutorial)
+  - [RealGrid tutorial](http://help.realgrid.com/tutorial) [wiki:3W2D](https://github.com/fyrn4/TIL/wiki/3W2D-Grid-Tutorial)
     - A, B Class 구현해보기.
 * day3 ~ 5 ( 2019.06.18~21 )
   - RealGrid CRUD 작성해보기.
     - 공통 함수를 사용하지 않고 순수하게 RealGrid 에서 제공하는 API를 보고 진행한다.
     - 어느 정도 화면이 나오는 수준이 되면 공통함수를 이해하도록 한다.
-    
+
+
+## 4 Week
+> Ls/Ed/P CRUD 화면 작성하기
+- RealGrid CRUD 화면 작성.
+  - 공통함수(gridJs)를 사용하지 않고, 순수 API참고하여 작성한다.
+  - 이 후, 공통함수를 이해하도록 한다. 
+
+- 요구사항
+  - 월별 급여를 입력하는 화면만들기.
+  - 조회조건은 조회월(달력), 부서(콤보), 이름(text) 이다.
+  - 그리드 컬럼에는 번호/부서명/이름/전월급여/복사(icon)/금월급여/지급여부(checkbox)
+  - 급여가 입력되지 않은 직원도 대상자면, 목록에 나오도록 한다.
+  - 복사 아이콘을 클릭하면 전월급여가 금월급여로 복사된다.
+  - 금월급여는 편집가능하고, 0원보다 커야한다.
+  - 지급여부는 Default가 'N'값이 입력되도록 한다. 
 
 
 
