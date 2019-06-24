@@ -1,0 +1,107 @@
+--
+select a1.emp_name, a2.dept_name
+from ta_emp a1 inner join ta_dept a2 on a1.dept_code = a2.dept_code;
+
+-- 1번문 완료 월별 급여 (부서별,이름별 sort)
+SELECT A2.DEPT_NAME,
+       A1.EMP_NAME,
+       A3.SALARY
+FROM TA_EMP A1 INNER JOIN TA_DEPT A2 ON A1.DEPT_CODE = A2.DEPT_CODE
+       INNER JOIN TA_SALARY A3 ON A3.EMP_CODE = A1.EMP_CODE
+WHERE A3.YYYYMM = '201803'
+    ORDER BY A2.DEPT_NAME,
+             A1.EMP_NAME;
+
+select sum(salary) from ta_salary where yyyymm='201803';
+
+-- DEPT랑 SALARY JOIN된 월별 부서급여 합계 (그룹, 부서이름 sort)
+select sum(a3.salary), a2.dept_name
+from ta_salary A3 inner join ta_dept a2 on a3.dept_code = a2.dept_code
+where yyyymm = '201803' 
+group by dept_name
+order by dept_name;
+
+
+
+-- 2번문 완료
+SELECT NVL(A2.DEPT_NAME,'전체') AS DEPT_NAME,
+       NVL(A1.EMP_NAME,'합계') AS EMP_NAME,
+       SUM(A3.SALARY) AS SALARY
+FROM TA_EMP A1 INNER JOIN TA_DEPT A2 ON A1.DEPT_CODE = A2.DEPT_CODE
+       INNER JOIN TA_SALARY A3 ON A3.EMP_CODE = A1.EMP_CODE
+WHERE A3.YYYYMM = '201803'
+    GROUP BY ROLLUP(DEPT_NAME, EMP_NAME)
+    ORDER BY A2.DEPT_NAME,
+             A1.EMP_NAME;
+    
+-- 1번이랑 같은거
+SELECT A2.DEPT_NAME,
+       A3.EMP_NAME,
+       A1.SALARY
+FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON A1.DEPT_CODE = a2.dept_code
+     INNER JOIN TA_EMP A3 ON a1.emp_code = a3.emp_code
+WHERE A1.YYYYMM = '201803'
+    ORDER BY A2.DEPT_NAME,
+             A3.EMP_NAME;
+             
+-- 부서별 급여 합계 salary join dept
+SELECT A2.DEPT_NAME, SUM(A1.SALARY)
+FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON A2.DEPT_CODE = A1.DEPT_CODE
+GROUP BY A2.DEPT_NAME
+ORDER BY A2.DEPT_NAME;
+
+
+
+-- 부서별 인원 카운트
+   SELECT A1.DEPT_NAME, COUNT(A2.DEPT_CODE)
+   FROM TA_DEPT A1 INNER JOIN TA_EMP A2 ON a1.dept_code = a2.dept_code 
+   GROUP BY A1.DEPT_NAME;
+
+-- 월별 부서 급여조회
+    select sum(a3.salary), a2.dept_name, count(a2.dept_name)
+    from ta_salary A3 inner join ta_dept a2 on a3.dept_code = a2.dept_code
+    where yyyymm = '201803' 
+    group by a2.dept_name
+    order by a2.dept_name;
+
+-- 당월 급여 합계  
+    SELECT SUM(SALARY) FROM TA_SALARY WHERE yyyymm = '201803';
+-- 부서별 월별 급여 합계
+    SELECT SUM(A1.SALARY), A2.DEPT_NAME
+    FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON a1.dept_code = a2.dept_code
+    WHERE YYYYMM = '201802'
+    GROUP BY a2.dept_name
+    ORDER BY a2.DEPT_NAME;
+    
+-- 전월 급여 합계
+    SELECT SUM(SALARY) FROM TA_SALARY WHERE yyyymm = TO_CHAR(ADD_MONTHS(to_date('201803','YYYYMM'),-1),'YYYYMM');
+-- 전년 동월 급여 합계
+    SELECT SUM(SALARY) FROM TA_SALARY WHERE yyyymm = TO_CHAR(ADD_MONTHS(to_date('201803','YYYYMM'),-12),'YYYYMM');
+
+-- 문제3. | 부서 | 인원 | 전월 | 당월 | 전년동월 | (인원이 중첩됨..)
+    SELECT A2.DEPT_NAME, COUNT(A2.DEPT_NAME) AS 인원,
+          SUM(DECODE(a1.yyyymm,'201803',salary)) 금월, 
+          SUM(DECODE(a1.yyyymm,'201802',salary)) 전월,
+          SUM(DECODE(a1.yyyymm,'201703',salary)) 전년동월
+    FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON a1.dept_code = a2.dept_code
+    group by a2.dept_name
+    order by a2.dept_name;
+    
+-- 디코드문, 금월,전월,작년동월
+select NVL(SUM(DECODE(a1.yyyymm,'201803',salary)),0) 금월, 
+          NVL(SUM(DECODE(a1.yyyymm,'201802',salary)),0) 전월,
+          NVL(SUM(DECODE(a1.yyyymm,'201703',salary)),0) 전년동월
+from ta_salary a1;
+
+-- 케이스문
+    SELECT A2.DEPT_NAME, COUNT(A2.DEPT_code) AS 인원
+    FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON a1.dept_code = a2.dept_code
+    group by a2.dept_name,a1.yyyymm
+    order by a2.dept_name;             
+    
+-- 문3 3조인
+    SELECT DISTINCT A2.DEPT_NAME, count(a2.dept_code)
+    FROM TA_SALARY A1 INNER JOIN TA_DEPT A2 ON a1.dept_code = a2.dept_code
+         INNER JOIN TA_EMP A3 ON a1.dept_code = a3.dept_code
+    group by a2.dept_name
+    order by a2.dept_name;
