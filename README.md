@@ -79,7 +79,8 @@
   - 공통함수(gridJs)를 사용하지 않고, 순수 API참고하여 작성한다.
   - 이 후, 공통함수를 이해하도록 한다. 
 
-> 과제:3가지 조회쿼리 작성하고 view작성하기. [(wiki:4W1D)](https://github.com/fyrn4/TIL/wiki/4W1D)
+> 과제:3가지 조회쿼리 작성하고 view작성하기. 
+[(wiki:4W1D)](https://github.com/fyrn4/TIL/wiki/4W1D),[(repo:4W5D)](https://github.com/fyrn4/TIL/tree/master/4W5D)
 
 - 요구사항
   - 월별 급여를 입력하는 화면만들기.
@@ -91,4 +92,4 @@
   - 지급여부는 Default가 'N'값이 입력되도록 한다. 
 
 
-
+- Rollup / Cube / Grouping set 알아보기. [(wiki:4W5D)](https://github.com/fyrn4/TIL/wiki/4W5D)
