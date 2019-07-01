@@ -1,0 +1,59 @@
+-- 1번문
+-- 월별 급여 조회
+SELECT 
+       A2.DEPT_NAME,
+       A1.EMP_NAME,
+       A3.SALARY
+FROM 
+       TA_EMP A1 INNER JOIN TA_DEPT A2 ON A1.DEPT_CODE = A2.DEPT_CODE
+                 INNER JOIN TA_SALARY A3 ON A3.EMP_CODE = A1.EMP_CODE
+WHERE 
+       A3.YYYYMM = '201803'
+ORDER BY 
+       A2.DEPT_NAME,
+       A1.EMP_NAME;
+
+
+-- 2번문
+-- 월별 급여조회, 부서별 그룹 급여합계
+SELECT 
+       NVL(A2.DEPT_NAME,'전체') AS DEPT_NAME,
+       NVL(A1.EMP_NAME,'합계') AS EMP_NAME,
+       SUM(A3.SALARY) AS SALARY
+FROM 
+       TA_EMP A1 INNER JOIN TA_DEPT A2 ON A1.DEPT_CODE = A2.DEPT_CODE
+                 INNER JOIN TA_SALARY A3 ON A3.EMP_CODE = A1.EMP_CODE
+WHERE 
+       A3.YYYYMM = '201803'
+GROUP BY 
+       ROLLUP(DEPT_NAME, EMP_NAME)
+ORDER BY 
+       A2.DEPT_NAME,
+       A1.EMP_NAME;
+
+-- 3번문
+-- | 부서 | 인원 | 전월 | 당월 | 전년동월 | 합계 조회
+SELECT 
+       NVL(A1.DEPT_NAME,'합계') AS DEPT_NAME, 
+       COUNT(A2.EMP_CODE) AS EMP_COUNT,
+       SUM(금월) AS THIS_MONTH, 
+       SUM(전월) AS LAST_MONTH, 
+       SUM(전년동월) AS LAST_YEAR
+FROM 
+       TA_DEPT A1 INNER JOIN TA_EMP A2 
+                          ON A1.DEPT_CODE = A2.DEPT_CODE
+INNER JOIN (
+      SELECT 
+           SUM(CASE WHEN YYYYMM = '201803' THEN SALARY END) 금월,
+           SUM(CASE WHEN YYYYMM = TO_CHAR(ADD_MONTHS(TO_DATE('201803','YYYYMM'),-1),'YYYYMM') THEN SALARY END) 전월,
+           SUM(CASE WHEN YYYYMM = TO_CHAR(ADD_MONTHS(TO_DATE('201803','YYYYMM'),-12),'YYYYMM') THEN SALARY END) 전년동월, 
+           EMP_CODE 
+      FROM 
+           TA_SALARY 
+      GROUP BY 
+           EMP_CODE
+           ) A3 ON A3.EMP_CODE = A2.EMP_CODE
+GROUP BY 
+        ROLLUP(A1.DEPT_NAME)
+ORDER BY
+        A1.DEPT_NAME; 
