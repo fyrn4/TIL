@@ -92,4 +92,4 @@
   - 지급여부는 Default가 'N'값이 입력되도록 한다. 
 
 
-- Rollup / Cube / Grouping set 알아보기. [(wiki:4W5D)](https://github.com/fyrn4/TIL/wiki/4W5D)
+- Rollup / Cube / Grouping set 등 알아보기. [(wiki:4W5D)](https://github.com/fyrn4/TIL/wiki/4W5D)
